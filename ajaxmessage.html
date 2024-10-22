@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Message Page</title>
+</head>
+<body>
+    <h1>Ajax Message Page</h1>
+    <form id="ajaxForm">
+        Name: <input type="text" id="ajaxname" name="ajaxname" required><br><br>
+        Country: <input type="text" id="ajaxcountry" name="ajaxcountry" required><br><br>
+        Message: <textarea id="ajaxmessage" name="ajaxmessage" required></textarea><br><br>
+        <button type="button" onclick="loadSubmit()">Ajax Submit</button>
+    </form>
+
+    <p id="demo"></p>
+    
+    <a href="http://localhost:8081/">
+        <button type="button">Index</button>
+    </a>
+    <a href="http://localhost:8081/guestbook">
+        <button type="button">Guestbook</button>
+    </a>
+    <a href="http://localhost:8081/newmessage">
+        <button type="button">New message</button>
+    </a>
+
+    <script>
+        function loadSubmit() {
+            // Gather form data
+            var name = document.getElementById("ajaxname").value;
+            var country = document.getElementById("ajaxcountry").value;
+            var message = document.getElementById("ajaxmessage").value;
+
+            // Create a new XMLHttpRequest object
+            var xhttp = new XMLHttpRequest();
+
+            // Set up the callback to update the page with the response
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;  // Display the response text
+                }
+            };
+
+            // Open a POST request to the server
+            xhttp.open("POST", "/ajaxmessage", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // Send the form data
+            xhttp.send(`ajaxname=${name}&ajaxcountry=${country}&ajaxmessage=${message}`);
+        }
+    </script>
+
+</body>
+</html>

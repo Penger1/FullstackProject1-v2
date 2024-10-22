@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Guestbook App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Guestbook App!</h1>
+    <p>We're glad you're here. Feel free to leave a message or check out what others have posted.</p>
+
+    <div class="button-container">
+        <a href="http://localhost:8081/newmessage">
+            <button type="button">New message</button>
+        </a>
+
+        <a href="http://localhost:8081/guestbook">
+            <button type="button">Guestbook</button>
+        </a>
+
+        <a href="http://localhost:8081/ajaxmessage">
+            <button type="button">Ajax message</button>
+        </a>
+    </div>
+
+</body>
+</html>
